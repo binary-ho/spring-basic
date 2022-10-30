@@ -1,11 +1,15 @@
 package hello.core.member;
 
+import hello.core.annotation.MainMemoryRepository;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 @Component
+@Primary
+@MainMemoryRepository
 public class MemoryMemberRepository implements MemberRepository {
     private static Map<Long, Member> store = new ConcurrentHashMap<>();
 
